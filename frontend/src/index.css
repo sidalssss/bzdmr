@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-400: #00f2ff;
+  --color-cyan-500: #00d8e6;
+  --color-cyan-600: #00b3bf;
+  --color-navy-900: #0a192f;
+  --color-navy-800: #112240;
+  --font-sans: "Inter", "system-ui", "sans-serif";
+}
+
+@layer base {
+  body {
+    @apply text-navy-900 bg-white;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .tech-border {
+    position: relative;
+  }
+
+  .tech-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid theme('colors.cyan.400');
+    border-bottom: 2px solid theme('colors.cyan.400');
+  }
+
+  .tech-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid theme('colors.cyan.400');
+    border-left: 2px solid theme('colors.cyan.400');
+  }
+}
